@@ -1,13 +1,18 @@
-"""连接redis"""
-
+# -*- coding: utf-8 -*-
+"""
+@Time    : 2020/10/12 9:13
+@Author  : liufubin
+@FileName: connect_redis.py
+@description: 连接redis公共方法
+"""
 import redis
 
 
 class ConnectRedis(object):
     """redis操作，初始化传入连接信息并连接"""
-    def __init__(self, host='192.168.1.29', port=6379, password='twznW28grxzk'):
+    def __init__(self, host='192.168.1.29', port=6379, password='twznW28grxzk', db='2'):
         redis.ConnectionPool(host=host, port=port, password=password, decode_responses=True)
-        self.redisdb = redis.Redis(host=host, port=port, password=password, decode_responses=True)
+        self.redisdb = redis.Redis(host=host, port=port, password=password, decode_responses=True, db=db)
 
     def redis_type(self, name):
         """获取redis-key的type(类型)"""
@@ -60,9 +65,13 @@ class ConnectRedis(object):
         return redis_hkeys
 
 
-connect = ConnectRedis()
-result = connect.redis_mget(keys=['USER_CELLPHOME_18166666666'])
-# dict1 = {'key1': '1', 'key2': '2'}
-# result1 = connect.redis_mset(dict1)
-
-print(result)
+if __name__ == '__main__':
+    connect = ConnectRedis()
+    Type = connect.redis_type(name='USER_CELLPHOME_13038576160')
+    result = connect.redis_get(key='USER_CELLPHOME_13055866827')
+    keys = connect.redis_keys()
+    # dict1 = {'key1': '1', 'key2': '2'}
+    # result1 = connect.redis_mset(dict1)
+    print(Type)
+    print(result)
+    print(keys)

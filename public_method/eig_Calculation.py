@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+@Time    : 2020/9/23 9:45
+@Author  : liufubin
+@FileName: eig_Calculation.py
+@description:计算特征向量方法
+"""
 import numpy
 import math
 
