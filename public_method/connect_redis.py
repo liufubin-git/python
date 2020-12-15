@@ -19,9 +19,9 @@ class ConnectRedis(object):
         redis_type = self.redisdb.type(name=name)
         return redis_type
 
-    def redis_keys(self):
+    def redis_keys(self, pattern='*'):
         """redis使用keys查看所有的key"""
-        redis_keys = self.redisdb.keys()
+        redis_keys = self.redisdb.keys(pattern=pattern)
         return redis_keys
 
     def redis_set(self, name, value, ex=None, nx=False):
@@ -67,11 +67,11 @@ class ConnectRedis(object):
 
 if __name__ == '__main__':
     connect = ConnectRedis()
-    Type = connect.redis_type(name='USER_CELLPHOME_13038576160')
-    result = connect.redis_get(key='USER_CELLPHOME_13055866827')
-    keys = connect.redis_keys()
+    # Type = connect.redis_type(name='"USER_CELLPHOME_13055866827"')
+    result = connect.redis_get(key='"USER_CELLPHOME_18888888880"')
+    keys = connect.redis_keys(pattern='*USER_CELLPHOME*')
     # dict1 = {'key1': '1', 'key2': '2'}
     # result1 = connect.redis_mset(dict1)
-    print(Type)
     print(result)
-    print(keys)
+    # print(Type)
+    # print(keys)
