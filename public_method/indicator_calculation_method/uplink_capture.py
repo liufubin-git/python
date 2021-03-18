@@ -5,7 +5,7 @@
 @FileName: uplink_capture.py
 @description: 上行捕获率计算
 """
-from public_method.upward_capture import UpwardCapture
+from public_method.indicator_calculation_method.upward_capture import UpwardCapture
 
 
 class UplinkCapture(object):

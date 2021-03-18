@@ -5,15 +5,15 @@
 @FileName: treynor.py
 @description: 特雷诺比率
 """
-from public_method.range_return_rate import RangeReturnRate
-from public_method.beta import Beta
+from public_method.indicator_calculation_method.range_return_rate import RangeReturnRate
+from public_method.indicator_calculation_method.beta import Beta
 
 
 class Treynor(object):
     @staticmethod
     def treynor(risk_free_year: float, monthly_fund_field: list, benchmark_monthly: list, startvalue, endvalue):
         """计算特雷诺比率，需要基金年化收益率，无风险收益率（取一年期定期存款利率）"""
-        range_rate = RangeReturnRate.annual_earnning(startvalue, endvalue)  # 计算区间收益，需要对应的区间始末净值
+        range_rate = RangeReturnRate.annual_earnning_dates(startvalue, endvalue)  # 计算区间收益，需要对应的区间始末净值
         beta = Beta.beta(monthly_fund_field, benchmark_monthly)                 # 计算贝塔，需要基金月度收益率，基准月度收益率
         treynor = (range_rate-risk_free_year)/beta
         return treynor

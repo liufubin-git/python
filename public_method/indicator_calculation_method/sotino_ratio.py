@@ -5,7 +5,7 @@
 @FileName: sotino_ratio.py
 @description: 索提诺比率计算
 """
-from public_method.downside_risk import DownsideRisk
+from public_method.indicator_calculation_method.downside_risk import DownsideRisk
 import math
 
 

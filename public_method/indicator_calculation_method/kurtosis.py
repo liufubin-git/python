@@ -7,7 +7,7 @@
 """
 import numpy
 import pandas
-from public_method.standard_deviation import StandardDeviation
+from public_method.indicator_calculation_method.standard_deviation import StandardDeviation
 
 
 class Kurtosis(object):

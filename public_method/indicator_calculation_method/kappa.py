@@ -5,7 +5,7 @@
 @FileName: kappa.py
 @description: 卡帕比率计算
 """
-from public_method.range_return_rate import RangeReturnRate
+from public_method.indicator_calculation_method.range_return_rate import RangeReturnRate
 
 
 class Kappa(object):
@@ -21,12 +21,13 @@ class Kappa(object):
         return lpm3
 
     @staticmethod
-    def kappa(startvalue, endvalue, year, monthly_fund_field, risk_free, isannual=True):
-        """计算卡帕，需要年化收益率，需要传入始末净值和年数，需要年化无风险收益率，lpm3"""
-        annual_earnning = RangeReturnRate.annual_earnning(startvalue=startvalue,  # 计算年化收益
-                                                          endvalue=endvalue, isannual=isannual, years=year)
+    def kappa(startvalue, endvalue, yesrs, monthly_fund_field, risk_free, isannual=True):
+        """计算卡帕，需要年化收益率，需要传入始末净值和净值总天数，需要年化无风险收益率，lpm3"""
+        annual_earnning = RangeReturnRate.annual_earnning_yesrs(startvalue=startvalue,  # 计算年化收益
+                                                                endvalue=endvalue, isannual=isannual, yesrs=yesrs)
         lpm3 = Kappa.lpm_3(monthly_fund_field, risk_free)
         kappa = (annual_earnning - risk_free)/(pow((lpm3 * 12), 1/3))
+        print(kappa)
         return kappa
 
 

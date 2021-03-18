@@ -5,7 +5,7 @@
 @FileName: track_error.py
 @description: 跟踪误差计算
 """
-from public_method.standard_deviation import StandardDeviation
+from public_method.indicator_calculation_method.standard_deviation import StandardDeviation
 import math
 
 

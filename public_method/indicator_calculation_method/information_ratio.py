@@ -5,7 +5,7 @@
 @FileName: information_ratio.py
 @description: 信息比率计算
 """
-from public_method.track_error import TrackError
+from public_method.indicator_calculation_method.track_error import TrackError
 import math
 
 

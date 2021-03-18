@@ -23,6 +23,10 @@ class MaximumRetracement(object):
         maxiunm_retracement = min(retracement_list)     # 回撤为负，所以直接取最小值即为最大回撤
         return maxiunm_retracement, retracement_list
 
+    @staticmethod
+    def maxiunm_retracement_(min_fund, max_fund):
+        return -(min_fund - max_fund)/max_fund
+
 
 if __name__ == '__main__':
     num_list = []

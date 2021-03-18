@@ -5,7 +5,7 @@
 @FileName: omega_ratio.py
 @description: 欧米伽比率计算
 """
-from public_method.range_return_rate import RangeReturnRate
+from public_method.indicator_calculation_method.range_return_rate import RangeReturnRate
 
 
 class OmegaRtio(object):
@@ -20,10 +20,10 @@ class OmegaRtio(object):
         return lpm1
 
     @staticmethod
-    def omega_ratio(startvalue, endvalue, year, risk_free_year, monthly_fund_field):
+    def omega_ratio(startvalue, endvalue, valuedates, risk_free_year, monthly_fund_field):
         """计算欧米伽，需要年化收益率，需要传入始末净值和年数，需要年化无风险收益率，lpm3"""
-        annual_earnning = RangeReturnRate.annual_earnning(startvalue=startvalue,  # 计算的年化收益率
-                                                          endvalue=endvalue, years=year)
+        annual_earnning = RangeReturnRate.annual_earnning_dates(startvalue=startvalue,  # 计算的年化收益率
+                                                          endvalue=endvalue, valuedates=valuedates)
         lpm1 = OmegaRtio.lpm_1(monthly_fund_field, risk_free_year)  # 计算lpm1
         omega_ratio = (annual_earnning - risk_free_year) / (lpm1 * 12) + 1
         return omega_ratio

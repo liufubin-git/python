@@ -6,8 +6,7 @@
 @description: 詹森指数计算
 """
 import numpy
-import math
-from public_method.beta import Beta
+from public_method.indicator_calculation_method.beta import Beta
 
 
 class Jensen(object):

@@ -5,7 +5,7 @@
 @FileName: down_capture.py
 @description: 下行捕获率计算
 """
-from public_method.downward_capture import DownwardCapture
+from public_method.indicator_calculation_method.downward_capture import DownwardCapture
 
 
 class DownCapture(object):

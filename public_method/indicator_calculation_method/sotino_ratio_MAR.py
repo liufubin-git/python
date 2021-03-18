@@ -5,7 +5,7 @@
 @FileName: sotino_ratio_MAR.py
 @description: 索提诺比率（MAR）
 """
-from public_method.downside_risk import DownsideRisk
+from public_method.indicator_calculation_method.downside_risk import DownsideRisk
 import math
 
 

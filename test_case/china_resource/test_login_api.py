@@ -2,9 +2,10 @@
 """ 
 @Time    : 2020/12/8 15:37
 @Author  : liufubin
-@FileName: login_api.py
+@FileName: test_login_api.py
 @description: 登录接口
 """
+import pytest
 import requests
 import time
 from public_method.request_method import RequestMethod

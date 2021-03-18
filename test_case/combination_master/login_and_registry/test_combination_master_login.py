@@ -2,15 +2,16 @@
 """ 
 @Time    : 2020/12/8 16:29
 @Author  : liufubin
-@FileName: combination_master_login.py
+@FileName: test_combination_master_login.py
 @description: 组合大师登录测试用例
 """
 from public_method.request_method import RequestMethod
+import pytest
 import requests
 import unittest
 
 
-class CombinationMaterLogin(unittest.TestCase):
+class TestCombinationMaterLogin(unittest.TestCase):
     isskip = 1
 
     @unittest.skipIf(isskip == 0, '正常登陆用例跳过')
@@ -68,7 +69,7 @@ class CombinationMaterLogin(unittest.TestCase):
 if __name__ == '__main__':
     # CombinationMaterLogin().test_logout()
     suite = unittest.TestSuite()
-    suite.addTest(CombinationMaterLogin('test_normal_password_login'))
+    suite.addTest(TestCombinationMaterLogin('test_normal_password_login'))
     # suite.addTest(CombinationMaterLogin('test_error_password_login'))
     # suite.addTest(CombinationMaterLogin('test_error_username_login'))
     runner = unittest.TextTestRunner()

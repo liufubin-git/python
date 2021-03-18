@@ -5,7 +5,7 @@
 @FileName: sharpe.py
 @description: 夏普比例计算
 """
-from public_method.standard_deviation import StandardDeviation
+from public_method.indicator_calculation_method.standard_deviation import StandardDeviation
 import math
 
 

@@ -2,14 +2,15 @@
 """ 
 @Time    : 2020/12/4 18:23
 @Author  : liufubin
-@FileName: indicator_api.py
+@FileName: test_indicator_api.py
 @description: 收益风险指标计算接口
 """
 import requests
 import unittest
+import pytest
 
 
-class Indicator(unittest.TestCase):
+class TestIndicator(unittest.TestCase):
     isskip = 1
 
     @staticmethod
@@ -34,19 +35,22 @@ class Indicator(unittest.TestCase):
 
     @unittest.skipIf(isskip == 0, '收益风险指标结果测试与生产对比用例跳过')
     def test_check_test_production(self):
-        """检查测试环境和生产环境返回数据是否一致"""
-        test_result = Indicator.combination_test_environment()
-        prodution_result = Indicator.combination_production_enviroment()
+        """检查指标计算测试环境和生产环境返回数据是否一致"""
+        test_result = TestIndicator.combination_test_environment()
+        prodution_result = TestIndicator.combination_production_enviroment()
         test_result = test_result.json()
         test_result = test_result['data']['dataset'][0]  # 获取测试环境接口返回数据中对应基金的数据
         prodution_result = prodution_result.json()
         prodution_result = prodution_result['data']['dataset'][0]   # 获取生产环境接口返回数据中对应基金的数据
         self.assertEqual(test_result, prodution_result, '测试环境与生产环境两边数据不一致')
 
+    def test_check_own_calculate_api(self):
+        """检查自己计算的指标结果和接口返回的数据对比"""
+
 
 if __name__ == '__main__':
-    indicator = Indicator()
+    indicator = TestIndicator()
     suite = unittest.TestSuite()
-    suite.addTest(Indicator('test_check_test_production'))
+    suite.addTest(TestIndicator('test_check_test_production'))
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
