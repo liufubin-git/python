@@ -11,16 +11,18 @@ import logging
 
 class ConnectMysql(object):
     """在实例化对象的时候，需要传入数据库连接的信息"""
-    def __init__(self, host='192.168.1.18', user='ai_dept_weinan', password='XSAPORHXmNcVlGVkMVtJ', port=3306):
+    def __init__(self, host='192.168.1.18', user='ai_dept_weinan', password='XSAPORHXmNcVlGVkMVtJ', port=3306, db=''):
         """初始化实例的时候连接数据库"""
         self.host = host
         self.user = user
         self.password = password
         self.port = port
+        self.db = db
         self.conn = pymysql.connect(host=self.host,  # 连接数据库
                                     port=self.port,
                                     user=self.user,
                                     password=self.password,
+                                    db=self.db,
                                     charset='utf8'
                                     )
 

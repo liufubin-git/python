@@ -3,7 +3,7 @@
 @Time    : 2020/11/30 17:41
 @Author  : liufubin
 @FileName: test_index_calculation_public.py
-@description: 指标计算调用公共方法(汇总指标计算)
+@description: 指标计算测试用例(汇总指标计算)
 """
 import unittest
 from test_case.combination_master.fund_research.fund_page.performance import test_indicator_api

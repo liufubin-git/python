@@ -17,6 +17,14 @@ class RangeReturnRate(object):
         return range_rate
 
     @staticmethod
+    def annual_earnning_month(startvalue, endvalue, isannual=False, month=12):
+        """计算区间收益率，需要传传入区间初和末期的净值，valuedates为净值区间的天数"""
+        range_rate = (endvalue - startvalue) / startvalue  # 计算的区间收益
+        if isannual:
+            range_rate = pow(1 + range_rate, 12 / month) - 1  # 日频的年化收益计算方法
+        return range_rate
+
+    @staticmethod
     def annual_earnning_yesrs(startvalue, endvalue, isannual=False, yesrs=1):
         """计算区间收益率，需要传传入区间初和末期的净值，valuedates为净值区间的天数"""
         range_rate = (endvalue - startvalue)/startvalue  # 计算的区间收益

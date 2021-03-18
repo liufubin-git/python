@@ -20,6 +20,7 @@ class Sharepe(object):
         sharpe = (income_difference_sum/len(monthly_fund_field))/standard_deviation
         if isannual:
             sharpe *= math.sqrt(12)     # 年化夏普比率
+            # sharpe *= math.sqrt(52)
         return sharpe
 
 

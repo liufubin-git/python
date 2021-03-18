@@ -21,7 +21,7 @@ class MaximumRetracement(object):
             if retracement < 0:
                 retracement_list.append(retracement/max(fund_net_value[0:i]))
         maxiunm_retracement = min(retracement_list)     # 回撤为负，所以直接取最小值即为最大回撤
-        return maxiunm_retracement, retracement_list
+        return -maxiunm_retracement, retracement_list
 
     @staticmethod
     def maxiunm_retracement_(min_fund, max_fund):

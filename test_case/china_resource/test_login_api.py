@@ -11,7 +11,7 @@ import time
 from public_method.request_method import RequestMethod
 
 
-class Login(object):
+class TestLogin(object):
     @staticmethod
     def login():
         registry_time = time.time()  # 获取当前时间时间戳
@@ -31,4 +31,4 @@ class Login(object):
 
 
 if __name__ == '__main__':
-    Login.login()
+    TestLogin.login()

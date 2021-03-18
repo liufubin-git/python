@@ -2,21 +2,18 @@
 """
 @Time    : 2020/10/12 9:13
 @Author  : liufubin
-@FileName: registry_api.py
+@FileName: test_registry_api.py
 @description: 华润项目填写注册接口请求
 """
 import unittest
-import json
 import random
 import time
-import re
 from public_method.request_method import RequestMethod
-from request_date.registry_request import RegistryRequestDate
+from request_date.china_resource.registry_request import RegistryRequestDate
 from public_method.connect_redis import ConnectRedis
-from public_method.connect_mysql import ConnectMysql
 
 
-class RegistryRequest(unittest.TestCase):
+class TestRegistryRequest(unittest.TestCase):
     isskip = ['yes']
 
     def setUp(self) -> None:
@@ -94,4 +91,4 @@ class RegistryRequest(unittest.TestCase):
 
 if __name__ == '__main__':
     # registry_response = RegistryRequest()
-    RegistryRequest().test_normal_registry()
+    TestRegistryRequest().test_normal_registry()

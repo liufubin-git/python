@@ -5,7 +5,7 @@
 @FileName: alpha.py
 @description: 阿尔法的计算
 """
-from public_method.beta import Beta
+from public_method.indicator_calculation_method.beta import Beta
 import numpy
 
 

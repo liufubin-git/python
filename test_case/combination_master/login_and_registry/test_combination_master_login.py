@@ -17,7 +17,7 @@ class TestCombinationMaterLogin(unittest.TestCase):
     @unittest.skipIf(isskip == 0, '正常登陆用例跳过')
     def test_normal_password_login(self):
         """密码正常登陆"""
-        body = {"username": "18826242365", "pass": "wn2020", "usertype": 2, "rem": 0}
+        body = {"username": "13055866827", "pass": "lfb13055866827", "usertype": 2, "rem": 0}
         url = 'https://fof.simuwang.com/Login/login'
         header = {
                     # "Content-Type": "application/json",

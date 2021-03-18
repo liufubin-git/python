@@ -8,11 +8,13 @@
 
 
 class InvestmentCertificateBiomedical(object):
-    """招商国证生物医药指数数据"""
-    start_fund = 0.681135
-    end_fund = 1.229152
+    """招商国证生物医药指数数据--时间为2019-06-01~2020-05-31"""
+    start_fund = 0.681135  # 净值开始值
+    end_fund = 1.229152    # 净值结束值
+    date_start_fund = 0.680172  # 日净值开始值
+    date_end_fund = 1.229152    # 日净值结束值
     years = 1
-    risk_frees = 0.015
+    risk_frees = 0.015   # 无风险收益率
     month_fund = [  # 基金月度收益率列表
         0.050473107,
         0.032867281,

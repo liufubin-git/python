@@ -35,7 +35,7 @@ if __name__ == '__main__':
     start_fund = 0.681135
     end_fund = 1.229152
     years = 1
-    risk_frees = 0.015
+    risk_frees = 0.015  # 无风险收益率1.5%
     month_fund = [  # 基金月度收益率列表
         0.050473107,
         0.032867281,

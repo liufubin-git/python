@@ -18,10 +18,10 @@ class RequestMethod(object):
                             level=logging.DEBUG)
 
     @staticmethod
-    def request_get_method(requesturl):
+    def request_get_method(requesturl, headers):
         """接口请求get方法，静态方法可以直接调用，不需要实例化"""
         logging.debug(requesturl)
-        response = requests.get(requesturl)
+        response = requests.get(requesturl, headers=headers)
         # cookie_jar = requests.session().get(requesturl).cookies
         cookie_jar = response.cookies
         cookie_json = requests.utils.dict_from_cookiejar(cookie_jar)
@@ -41,10 +41,14 @@ class RequestMethod(object):
 
     @staticmethod
     def cookies_connection(cookie_json):
+        """拼接cookies"""
         cookie_connection = ''
         for key, value in cookie_json.items():
-            cookie_connection += '{}:{};'.format(key, value)
+            cookie_connection += '{}={}; '.format(key, value)
+        if cookie_connection.endswith(' '):
+            cookie_connection = cookie_connection[:-2]
         print(cookie_connection)
+        return cookie_connection
 
     @staticmethod
     def request_delete_method(requesturl):

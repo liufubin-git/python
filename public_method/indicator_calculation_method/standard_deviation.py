@@ -62,5 +62,48 @@ if __name__ == '__main__':
         0.141202937,
         0.077852734,
     ]
-    standard_result = StandardDeviation.standard_deviation(month_earning_list=monthly_fund, is_annual=False)
+    stock_applies = [
+        0.7229,
+        0.2415,
+        -0.241,
+        1.9656,
+        -1.6908,
+        -0.9569,
+        0.2398,
+        0.4819,
+        0.7177,
+        0,
+        0,
+        1.4563,
+        0,
+        -0.9615,
+        0,
+        0.241,
+        -0.4796,
+        0,
+        0.7246,
+        0,
+        0.2421,
+        1.2255,
+        0.2445,
+        1.4888,
+        -0.4938,
+        -2.1739,
+        1.7199,
+        -0.245,
+        -1.4493,
+        0.2421
+    ]
+    print(len(stock_applies))
+    print(stock_applies)
+    stock_applies_100 = []
+    for i in stock_applies:
+        stock_applies_100.append(i/100)
+    # standard_result = StandardDeviation.standard_deviation(month_earning_list=monthly_fund, is_annual=False)
+    # print(standard_result)
+    standard_result = StandardDeviation.standard_deviation(month_earning_list=stock_applies, is_annual=False)
+    standard_result_100 = StandardDeviation.standard_deviation(month_earning_list=stock_applies_100, is_annual=False)
+    print(math.sqrt(numpy.var(stock_applies_100)))
+    print(stock_applies_100)
     print(standard_result)
+    print(standard_result_100)
