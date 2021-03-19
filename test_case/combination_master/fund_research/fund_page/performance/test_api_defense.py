@@ -19,8 +19,8 @@ class TestApiDefence(object):
     def test_get_login_cookies(username='13055866827', passwd='YfGE17P0BolEz116OlJVPQ=='):
         """先登录获取cookie"""
         body = {"username": username, "pass": passwd, "usertype": 2, "rem": 0}
-        # url = 'https://fof.simuwang.com/Login/login'        # 生产环境登录接口
-        url = 'https://master-test.simuwang.com/Login/login'  # 测试环境登录接口
+        url = 'https://fof.simuwang.com/Login/login'        # 生产环境登录接口
+        # url = 'https://master-test.simuwang.com/Login/login'  # 测试环境登录接口
         header = {
             # "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
@@ -40,8 +40,8 @@ class TestApiDefence(object):
         cookie_value = TestApiDefence.test_get_login_cookies(username='13055866827', passwd='YfGE17P0BolEz116OlJVPQ==')
         fundid_start_end_time = {}
         print(cookie_value)
-        # url = 'https://fof.simuwang.com/PrivateVolumeData/getDataList'
-        url = 'https://master-test.simuwang.com/PrivateVolumeData/getDataList'
+        url = 'https://fof.simuwang.com/PrivateVolumeData/getDataList'
+        # url = 'https://master-test.simuwang.com/PrivateVolumeData/getDataList'
         # body = 'raiseType=3&curveType=0&keyword=&columns[0][value]=fund_short_name-0' \
         #        '&columns[1][value]=fund_id-1&columns[2][value]=inception_date-2' \
         #        '&columns[3][value]=price_date-3&columns[4][value]=weighted_rating-4' \
@@ -210,14 +210,14 @@ class TestApiDefence(object):
             fund_id = key
             fund_start_time = value[0]
             fund_end_time = value[1]
-            # url = 'https://fof.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?' \
-            #       'startDate={}&endDate={}&navType=OriginalNav&timeRange=FromSetup&initValue=1.0&' \
-            #       'dataSourceType=Nav&raiseType=Public&strategy=Hybrid&visibility=Both&showAssetStyleBenmark=true&' \
-            #       'dataSource=Weekly&t=1615626049841'.format(fund_id, fund_start_time, fund_end_time)
-            url = 'https://master-test.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?startDate' \
-                  '={}&endDate={}&navType=CumulativeNav&timeRange=FromSetup&initValue=1.0' \
-                  '&dataSourceType=Nav&raiseType=Private&strategy=Equity&visibility=Both&showAssetStyleBenmark=true' \
-                  '&dataSource=Default&t=1615943306913'.format(fund_id, fund_start_time, fund_end_time)
+            url = 'https://fof.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?' \
+                  'startDate={}&endDate={}&navType=OriginalNav&timeRange=FromSetup&initValue=1.0&' \
+                  'dataSourceType=Nav&raiseType=Public&strategy=Hybrid&visibility=Both&showAssetStyleBenmark=true&' \
+                  'dataSource=Weekly&t=1615626049841'.format(fund_id, fund_start_time, fund_end_time)
+            # url = 'https://master-test.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?startDate' \
+            #       '={}&endDate={}&navType=CumulativeNav&timeRange=FromSetup&initValue=1.0' \
+            #       '&dataSourceType=Nav&raiseType=Private&strategy=Equity&visibility=Both&showAssetStyleBenmark=true' \
+            #       '&dataSource=Default&t=1615943306913'.format(fund_id, fund_start_time, fund_end_time)
             print(url)
             header = {
                 "X-Requested-With": "XMLHttpRequest",
@@ -251,14 +251,14 @@ class TestApiDefence(object):
             fund_id = key
             fund_start_time = value[0]
             fund_end_time = value[1]
-            # url = 'https://fof.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?' \
-            #       'startDate={}&endDate={}&navType=OriginalNav&timeRange=FromSetup&initValue=1.0&' \
-            #       'dataSourceType=Nav&raiseType=Public&strategy=Hybrid&visibility=Both&showAssetStyleBenmark=true&' \
-            #       'dataSource=Weekly&t=1615626049841'.format(fund_id, fund_start_time, fund_end_time)
-            url = 'https://master-test.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?' \
+            url = 'https://fof.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?' \
                   'startDate={}&endDate={}&navType=OriginalNav&timeRange=FromSetup&initValue=1.0&' \
                   'dataSourceType=Nav&raiseType=Public&strategy=Hybrid&visibility=Both&showAssetStyleBenmark=true&' \
                   'dataSource=Weekly&t=1615626049841'.format(fund_id, fund_start_time, fund_end_time)
+            # url = 'https://master-test.simuwang.com/dataservice/v1/secuirties/{}/growth-contrast?' \
+            #       'startDate={}&endDate={}&navType=OriginalNav&timeRange=FromSetup&initValue=1.0&' \
+            #       'dataSourceType=Nav&raiseType=Public&strategy=Hybrid&visibility=Both&showAssetStyleBenmark=true&' \
+            #       'dataSource=Weekly&t=1615626049841'.format(fund_id, fund_start_time, fund_end_time)
             header = {
                 "X-Requested-With": "XMLHttpRequest",
                 "charset": "UTF-8",
@@ -269,7 +269,7 @@ class TestApiDefence(object):
                 "Cookie": "{}".format(cookie_value)
             }
             charts_result = requests.get(url=url, headers=header)
-            print(charts_result.json())
+            print(charts_result.text)
             if charts_result.status_code == 200:
                 i += 1
             if i > 120:
@@ -324,5 +324,5 @@ if __name__ == '__main__':
     # TestApiDefence().test_get_ip()
     # TestApiDefence.get_ip_from_66()
     # TestApiDefence.test_ip_changes_largeten_one_hour()
-    # TestApiDefence.test_five_minutes_morethan_100()
-    TestApiDefence.test_eight_ours_morethan_2000()
+    TestApiDefence.test_five_minutes_morethan_100()
+    # TestApiDefence.test_eight_ours_morethan_2000()
