@@ -14,6 +14,7 @@ class Alpha(object):
     def alpha(monthly_fund_field: list, benchmark_monthly: list, isannual=False):
         """计算贝塔，需要传入基金月度收益率列表和基准月度收益率列表, 需要贝塔的值"""
         beta = Beta.beta(monthly_fund_field, benchmark_monthly)   # 计算的beta值
+        print(beta)
         average_fund = numpy.average(monthly_fund_field)          # 基金月度收益平均值
         average_benchmark = numpy.average(benchmark_monthly)      # 基准月度收益平均值
         alpha = average_fund - beta * average_benchmark
@@ -62,7 +63,8 @@ if __name__ == '__main__':
         4.24,
         2.39,
         1.01,
-        1.61
+        1.61,
+        -0.47
     ]
     benchmark_monthlys = [
         -0.75,
@@ -75,8 +77,8 @@ if __name__ == '__main__':
         12.75,
         7.68,
         - 1.16,
-        6.14
-
+        6.14,
+        -7.6
     ]
     for i in range(len(monthly_fund)):
         monthly_fund[i] = monthly_fund[i]/100
